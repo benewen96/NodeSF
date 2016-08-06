@@ -29,15 +29,15 @@ module.exports = {
 	    else {
 	    	var deleteResults = function() {
 				connection.sobject("Record__c")
-					.find({ Name : 'I am a node object' })
+					.find({Name : 'I am a node object' })
 					.destroy(function(err, rets) {
 						if(err) {return console.error(err); }
 						//something useful to return to our callback
-						return callback(queryRes.length + ' records deleted from salesforce'); //trace start (1)
+						return callback(queryRes); //trace start (1)
 					});
 			}
 
-			connection.query("select Name from Record__c")
+			connection.query("select Name, Id from Record__c")
 			.on("record", function(record) { //on emit of a record
 				queryRes.push(record);
 			})
