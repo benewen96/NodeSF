@@ -20,6 +20,7 @@ server.get('/del', function(req, res) {
 	var info = '<ol>';
 	//execute delete records function, when it completes, call function(info) callback
 	recordIO.deleteRecords(/*my callback def*/function(infoArray) { //callback trace finish (3)
+		if(infoArray.length == 0) {info = "no records to delete"};
 		for(var i = 0; i < infoArray.length; ++i) {
 			info += '<li>object: ' + infoArray[i].Id + ' with name: ' + infoArray[i].Name + ' successfully deleted.</li>';
 		}
