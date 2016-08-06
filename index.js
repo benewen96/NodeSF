@@ -41,7 +41,7 @@ var deleteRecords = function(callback) { //delete records will return to a user 
 					.destroy(function(err, rets) {
 						if(err) {return console.error(err); }
 						//something useful to return to our callback
-						return callback(queryRes.length + ' records deleted...'); //trace start (1)
+						return callback(queryRes.length + ' records deleted from salesforce'); //trace start (1)
 					});
 			}
 
